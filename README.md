@@ -1,4 +1,19 @@
-# module-sdxl-main
-Example of the Lilypad Module Stable Diffusion SDXL 0.9 
+# SDXL v0.9 in Docker 🐋
 
-[Lilypad Docs](https://docs.lilypadnetwork.org/lilypad-aurora-examples/stable-diffusion-sdxl0.9)
+```
+export HUGGINGFACE_TOKEN=<my huggingface token>
+```
+```
+docker build -t sdxl:v0.9 --build-arg HUGGINGFACE_TOKEN=$HUGGINGFACE_TOKEN .
+```
+```
+mkdir -p outputs
+```
+```
+docker run -ti --gpus all \
+    -v $PWD/outputs:/outputs \
+    -e OUTPUT_DIR=/outputs/ \
+    -e PROMPT="an astronaut riding an orange horse" \
+    sdxl:v0.9
+```
+Will overwrite `outputs/image0.png` each time.
