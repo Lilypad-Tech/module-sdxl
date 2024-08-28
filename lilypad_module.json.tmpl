@@ -1,0 +1,58 @@
+{
+  "machine": {
+    "gpu": 1,
+    "cpu": 1000,
+    "ram": 16000
+  },
+  "job": {
+    "APIVersion": "V1beta1",
+    "Metadata": {
+      "Name": "sdxl-job"
+    },
+    "Spec": {
+      "Deal": {
+        "Concurrency": 1
+      },
+      "Docker": {
+        "Entrypoint": [
+          "/bin/sh",
+          "-c",
+          "python /app/run_inference.py"
+        ],
+        "Image": "sdxl:v0.9"
+      },
+      "Engine": "Docker",
+      "Network": {
+        "Type": "None"
+      },
+      "PublisherSpec": {
+        "Type": "IPFS"
+      },
+      "Resources": {
+        "GPU": "1"
+      },
+      "Timeout": 1800,
+      "Verifier": "Noop",
+      "InputVolumes": [
+        {
+          "Name": "huggingface-token",
+          "Description": "Hugging Face API token",
+          "Secret": true
+        }
+      ],
+      "Inputs": [
+        {
+          "Name": "PROMPT",
+          "Description": "Text prompt for image generation",
+          "Default": "an astronaut riding an orange horse"
+        }
+      ],
+      "Outputs": [
+        {
+          "Name": "output",
+          "Path": "/outputs"
+        }
+      ]
+    }
+  }
+}
