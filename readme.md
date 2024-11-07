@@ -43,7 +43,6 @@ lilypad run github.com/Lilypad-Tech/module-sdxl:d6a89ed92f4e798459b2990340669da0
 ## Notes
 
 - Ensure you have the necessary permissions and resources to run Docker containers with GPU support.
-- The module version (`ae17e969cadab1c53d7cabab1927bb403f02fd2a`) may be updated. Check for the latest version before running.
-- Adjust port mappings and volume mounts as needed for your specific setup.
+- The module version (`ae17e969cadab1c53d7cabab1927bb403f02fd2a`) may be updated. Check for the latest commit version before running.
 
 ![output](https://github.com/user-attachments/assets/fd15fd70-f543-48c6-b5e7-2d5d835edd78)
